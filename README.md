@@ -9,10 +9,33 @@ Saya mengalami beberapa masalah, TAPI HILANG SEMUA ITU READMENYA GEGARA REPONYA 
 
 2. Halaman `Cart` tidak muncul sesuai dengan harapan. Disebabkan karena `CartScreen` tidak dapat menemukan data dari <CartModel>. Walaupun file `cart_model.dart` dan `CartScreen` sudah dibuat, keduanya belum terhubung melalui Provider. Dalam Flutter, Provider berfungsi untuk membuat data seperti CartModel dapat diakses secara global oleh semua halaman. Tanpa Provider, setiap halaman hanya mengenali salinannya sendiri, bukan data yang sama secara bersama. Karena itu, perlu menambahkan Provider di `main.dart` agar `CartModel` dapat digunakan secara konsisten di seluruh aplikasi.
 
-3. Saat menjalankan step 1 bagian 
+3. Potongan kode `'/product': (context) => ProductDetailScreen()` tidak bisa menggunakan `route` biasa, perlu menggunakan `onGenerateRoute`. `/product` membutuhkan argument, sedangkan `route` tidak dapat secara langsung menerima argumen. Jadi khusus untuk `/product` dibuatkan route terpisah sebagai berikut:
+```dart
+    onGenerateRoute: (settings) {
+        if (settings.name == '/product') {
+          // bisa kirim id (int) atau object Product
+          if (settings.arguments is int) {
+            //teirma id
+            final id = settings.arguments as int;
+            final product = ProductsRepository.loadProducts(Category.all)
+                .firstWhere((p) => p.id == id);
+            return MaterialPageRoute(
+              builder: (context) => ProductDetailScreen(product: product),
+            );
+          }
+        }
+        return null;
+      },
+```
 
 4. Repository saya bermasalah. Terdapat subrepo di dalam repository. Hal ini disebabkan karena saya melakukan copas folder sekaligus repository VisproWeek3. Sebagai solusi saya meminta bantuan kepada AI (ChatGPT, Gemini), teman-teman (Michele, Ce Inno), serta kating (Ko Gibek). Tapi pada akhirnya saya memutuskan membuat repo baru saja.
 
-5. Aplikasi tidak bisa jalan saat menjalankan `flutter run` di repo baru. Takut salah ambil langkah seperti masalah sebelumnya, saya meminta bantuan kepada Ko Rei.
+5. Aplikasi tidak bisa jalan saat menjalankan `flutter run` di repo baru. Sudah mencoba hapus folder Android, tetapi tidak berhasil. Takut salah ambil langkah seperti masalah sebelumnya, saya meminta bantuan kepada Ko Rei. Setelah konsul, hal ini disebabkan Gradle yang rewel. Solusi yang diambil meliputi langkah berikut
+    1. `rm -rf ~/.gradle/daemon/`
+    2. `rm -rf ~/.gradle/caches/`
+    3. `flutter clean`
+    4. `flutter pub get`
+    5. `flutter run`
 
 ### Fitur yang akan Ditambahkan Selanjutnya
+Untuk tahap pengembangan selanjutnya, tim pengembang akan menambahkan fitur profile user dan fitur chekcout.
