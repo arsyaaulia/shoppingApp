@@ -31,11 +31,11 @@ Saya mengalami beberapa masalah, TAPI HILANG SEMUA ITU READMENYA GEGARA REPONYA 
 4. Repository saya bermasalah. Terdapat subrepo di dalam repository. Hal ini disebabkan karena saya melakukan copas folder sekaligus repository VisproWeek3. Sebagai solusi saya meminta bantuan kepada AI (ChatGPT, Gemini), teman-teman (Michele, Ce Inno), serta kating (Ko Gibek). Tapi pada akhirnya saya memutuskan membuat repo baru saja.
 
 5. Aplikasi tidak bisa jalan saat menjalankan `flutter run` di repo baru. Sudah mencoba hapus folder Android, tetapi tidak berhasil. Takut salah ambil langkah seperti masalah sebelumnya, saya meminta bantuan kepada Ko Rei. Setelah konsul, hal ini disebabkan Gradle yang rewel. Solusi yang diambil meliputi langkah berikut
-    1. `rm -rf ~/.gradle/daemon/`
-    2. `rm -rf ~/.gradle/caches/`
-    3. `flutter clean`
-    4. `flutter pub get`
-    5. `flutter run`
+    5.1. `rm -rf ~/.gradle/daemon/`
+    5.2. `rm -rf ~/.gradle/caches/`
+    5.3. `flutter clean`
+    5.4. `flutter pub get`
+    5.5. `flutter run`
 
 ### Fitur yang akan Ditambahkan Selanjutnya
 Untuk tahap pengembangan selanjutnya, tim pengembang akan menambahkan fitur profile user dan fitur chekcout.
