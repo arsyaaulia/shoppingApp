@@ -1,0 +1,73 @@
+name: shrine
+description: Learn the basics of using Material Components by building a simple app with core components.
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  intl: ^0.18.0
+
+  cupertino_icons: ^1.0.5
+  shrine_images: ^2.0.2
+  provider: ^6.1.5+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
+  # TODO: Insert Fonts (103)
+  fonts:
+    - family: Rubik
+      fonts:
+        - asset: fonts/Rubik-Regular.ttf
+        - asset: fonts/Rubik-Medium.ttf
+          weight: 500
+
+  uses-material-design: true
+  assets:
+    - assets/grafix.png
+    - assets/diamond.png
+    - assets/slanted_menu.png
+    # TODO: Add slanted menu asset (104)
+    - assets/img/Produk1.png
+    - assets/img/Produk2.png
+    - assets/img/Produk3.png
+    - assets/img/Produk4.png
+    - assets/img/Produk5.png
+    - assets/img/Produk6.png
+    - assets/img/Produk7.png
+    - assets/img/Produk8.png
+    - assets/img/Produk9.png
+    - assets/img/Produk10.png
+    - assets/img/Produk11.png
+    - assets/img/Produk12.png
+    - assets/img/Produk13.png
+    - assets/img/Produk14.png
+    - assets/img/Produk15.png
+    - assets/img/Produk16.png
+    - assets/img/Produk17.png
+    - assets/img/Produk18.png
+    - assets/img/Produk19.png
+    - assets/img/Produk20.png
+    - assets/img/Produk21.png
+    - assets/img/Produk22.png
+    - assets/img/Produk23.png
+    - assets/img/Produk24.png
+    - assets/img/Produk25.png
+    - assets/img/Produk26.png
+    - assets/img/Produk27.png
+    - assets/img/Produk28.png
+    - assets/img/Produk29.png
+    - assets/img/Produk30.png
+    - assets/img/Produk31.png
+    - assets/img/Produk32.png
+    - assets/img/Produk33.png
+    - assets/img/Produk34.png
+    - assets/img/Produk35.png
+    - assets/img/Produk36.png
+    - assets/img/Produk37.png
+    - assets/img/Produk38.png
