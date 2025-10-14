@@ -23,8 +23,8 @@ import 'colors.dart';
 import 'screens/productDetailScreen.dart';
 import 'supplemental/cut_corners_border.dart';
 
-import 'backdrop.dart'; // New code
-import 'model/product.dart'; // New code
+import 'backdrop.dart'; 
+import 'model/product.dart'; 
 
 import 'category_menu_page.dart';
 

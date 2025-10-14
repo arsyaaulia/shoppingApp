@@ -1,9 +1,11 @@
 # Refleksi ShoppingApp: Grafix
-Grafix merupakan platform digital yang menyediakan jasa Desain Grafis. Jasa yang ditawarkan berupa desain untuk kebutuhan pribadi, sosial media, hingga kebutuhan event.
-## Struktur Root dan Navigasi
+Grafix merupakan platform digital yang menyediakan jasa Desain Grafis. Jasa yang ditawarkan berupa desain untuk kebutuhan pribadi, sosial media, hingga kebutuhan event. Produk atau Desain yang ditampilkan merupakan beberapa Desain yang telah tim pengembang buat selama ini.
 
-## Masalah dan Solusi
-Saya mengalami beberapa masalah, TAPI HILANG SEMUA ITU READMENYA GEGARA REPONYA BERMASALAH HIKS. Lupa copy foldernya sebelum diperbaiki sama Ko Gibek. Ko Gibek tidak salah, saya yang salah mengira foldernya sudah saya copy, padahal belum. Jadi saya akan tuliskan masalah dan solusi yang saya ingat saja.. (masih tidak ikhlas lupa copy foldernya).
+## A. Struktur Root dan Navigasi
+Untuk struktur root dan 
+
+## B. Masalah dan Solusi
+Saya mengalami beberapa masalah, TAPI HILANG SEMUA ITU READMENYA GEGARA REPONYA BERMASALAH hiks. Lupa copy foldernya sebelum diperbaiki sama Ko Gibek. Ko Gibek tidak salah, saya yang salah mengira foldernya sudah saya copy, padahal belum. Jadi saya akan tuliskan masalah dan solusi yang saya ingat saja.. (masih tidak ikhlas lupa copy foldernya).
 
 1. Aplikasi tidak menampilkan tampilan seharusnya. Sempat mengotak-atik folder android, tetapi tetap tidak bisa. Lalu saya mengambil langkah menghapus folder Android sesuai saran dari Ko Rei. Menjalankan `flutter run` kembali menggunakan emulator Android, program akan mendeteksi ada folder yang kurang dan akan menambahkannya kembali sesuai kebutuhan.
 
@@ -37,5 +39,8 @@ Saya mengalami beberapa masalah, TAPI HILANG SEMUA ITU READMENYA GEGARA REPONYA 
     - `flutter pub get`
     - `flutter run`
 
-### Fitur yang akan Ditambahkan Selanjutnya
+## C. How deep linking can improve the usability and discoverability of your app.
+isi
+
+## D. Fitur yang akan Ditambahkan Selanjutnya
 Untuk tahap pengembangan selanjutnya, tim pengembang akan menambahkan fitur profile user dan fitur chekcout.
