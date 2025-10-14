@@ -1,5 +1,5 @@
-# Refleksi ShoppingApp
-Routes and Deeplinking
+# Refleksi ShoppingApp: Grafix
+Grafix merupakan platform digital yang menyediakan jasa Desain Grafis. Jasa yang ditawarkan berupa desain untuk kebutuhan pribadi, sosial media, hingga kebutuhan event.
 ## Struktur Root dan Navigasi
 
 ## Masalah dan Solusi

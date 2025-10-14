@@ -28,6 +28,9 @@ import 'model/product.dart'; // New code
 
 import 'category_menu_page.dart';
 
+import 'package:app_links/app_links.dart';
+
+
 // TODO: Convert ShrineApp to stateful widget (104)
 class ShrineApp extends StatefulWidget {
   const ShrineApp({Key? key}) : super(key: key);
@@ -36,15 +39,60 @@ class ShrineApp extends StatefulWidget {
 }
 
 class _ShrineAppState extends State<ShrineApp> {
-  // Tambahan: menyimpan kategori aktif
+  // Menyimpan kategori aktif
   Category _currentCategory = Category.all;
 
-  // Tambahan: callback saat kategori dipilih
+  // Deeplink handler
+  late final AppLinks _appLinks;
+
+  @override
+  void initState() {
+    super.initState();
+    _appLinks = AppLinks();
+
+    // Menangkap deep link saat aplikasi sedang aktif
+    _appLinks.uriLinkStream.listen((Uri? uri) {
+      if (uri == null) return;
+      _handleDeepLink(uri);
+    });
+
+    // Menangkap deep link saat aplikasi dibuka dari luar
+    _handleInitialUri();
+  }
+
+  // Fungsi untuk handle deep link
+  void _handleDeepLink(Uri uri) {
+    // Misal: grafix://product/2
+    if (uri.host == 'product') {
+      final productId =
+          uri.pathSegments.isNotEmpty ? int.tryParse(uri.pathSegments[0]) : null;
+
+      if (productId != null) {
+        Navigator.pushNamed(
+          context,
+          '/product',
+          arguments: productId,
+        );
+      }
+    }
+  }
+
+  Future<void> _handleInitialUri() async {
+    final Uri? uri = await _appLinks.getInitialAppLink();
+    if (uri != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _handleDeepLink(uri);
+      });
+    }
+  }
+
+  // Callback saat kategori dipilih
   void _onCategoryTap(Category category) {
     setState(() {
       _currentCategory = category;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -52,45 +100,36 @@ class _ShrineAppState extends State<ShrineApp> {
       initialRoute: '/login',
       routes: {
         '/login': (BuildContext context) => const LoginPage(),
-
         '/': (BuildContext context) => Backdrop(
-          currentCategory: _currentCategory,
-          frontLayer: HomePage(category: _currentCategory),
-          backLayer: CategoryMenuPage(
-            currentCategory: _currentCategory,
-            onCategoryTap: _onCategoryTap,
-          ),
-          frontTitle: const Text('GRAFIX'),
-          backTitle: const Text('MENU'),
-        ),
-
-        '/cart': (BuildContext context) => const CartScreen(), 
+              currentCategory: _currentCategory,
+              frontLayer: HomePage(category: _currentCategory),
+              backLayer: CategoryMenuPage(
+                currentCategory: _currentCategory,
+                onCategoryTap: _onCategoryTap,
+              ),
+              frontTitle: const Text('GRAFIX'),
+              backTitle: const Text('MENU'),
+            ),
+        '/cart': (BuildContext context) => const CartScreen(),
         '/about': (context) => AboutScreen(),
       },
 
-      //Route khusus Product
+      // Route khusus Product Detail
       onGenerateRoute: (settings) {
         if (settings.name == '/product') {
-          // bisa kirim id (int) atau object Product
           if (settings.arguments is int) {
-            //teirma id
             final id = settings.arguments as int;
             final product = ProductsRepository.loadProducts(Category.all)
                 .firstWhere((p) => p.id == id);
             return MaterialPageRoute(
               builder: (context) => ProductDetailScreen(product: product),
             );
-          // } else if (settings.arguments is Product) {
-          //   final product = settings.arguments as Product;
-          //   return MaterialPageRoute(
-          //     builder: (context) => ProductDetailScreen(product: product),
-          //   );
           }
         }
         return null;
       },
-      // TODO: Customize the theme (103)
-      theme: _kShrineTheme, // New code
+
+      theme: _kShrineTheme,
     );
   }
 }
