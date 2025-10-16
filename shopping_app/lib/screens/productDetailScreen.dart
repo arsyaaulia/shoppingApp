@@ -8,34 +8,60 @@ import '../model/products_repository.dart';
 // import '../model/products_repository.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  final Product? product;
+  final int? productId;
 
-  const ProductDetailScreen({Key? key, this.product}) : super(key: key);
+  const ProductDetailScreen({Key? key, this.productId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     
-    final int productId = ModalRoute.of(context)!.settings.arguments as int;
-    final product = ProductsRepository.loadProducts(Category.all).firstWhere((p) => p.id == productId);
+     // ambil argument
+    final args = ModalRoute.of(context)?.settings.arguments;
+    int? receivedId;
+    if (args is int) {
+      receivedId = args;
+    } else if (args is String) {
+      receivedId = int.tryParse(args);
+    } else {
+      receivedId = productId;
+    }
+
+
+    // jika tidak ada id, tampilkan placeholder
+    if (receivedId == null) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('Produk tidak ditemukan')),
+        body: const Center(
+          child: Text(
+            'Kenapa tidak muncul?',
+            style: TextStyle(fontSize: 18),
+          ),
+        ),
+      );
+    }
+
+    // kalau ada, baru ambil data produk
+    final product = ProductsRepository.loadProducts(Category.all)
+        .firstWhere(
+          (p) => p.id == receivedId,
+          orElse: () => const Product(
+            category: Category.all, 
+            id: -1, 
+            isFeatured: false, 
+            name: 'Produk tidak ditemukan', 
+            price: 0, 
+            assetName: 'assets/not_found.png'),
+          );
+
 
     return Scaffold(
-      
-
       appBar: AppBar(
         title: Text(product.name),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: product == null
-            // placeholder
-            ? const Center(
-                child: Text(
-                  'Produk tidak ditemukan',
-                  style: TextStyle(fontSize: 18),
-                ),
-              )
-            : Column(
+        child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AspectRatio(
@@ -97,7 +123,7 @@ class ProductDetailScreen extends StatelessWidget {
                     ],
                   ),
                 ],
-              ),
+            ),
       ),
     );
   }

@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shrine/colors.dart';
 import 'package:shrine/screens/productDetailScreen.dart';
+import '';
 
 import '../model/product.dart';
 
@@ -51,7 +52,7 @@ class ProductCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (_) => ProductDetailScreen(product: product)),
+            builder: (_) => ProductDetailScreen(productId: product.id)),
         );
       }, // Tambahkan handler navigasi jika perlu
       child: Card(

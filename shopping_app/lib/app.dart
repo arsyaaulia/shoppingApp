@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flutter/material.dart';
-import 'package:shrine/model/products_repository.dart';
+// import 'package:shrine/model/products_repository.dart';
 
 import 'screens/about.dart';
 import 'screens/cartScreen.dart';
@@ -88,7 +88,6 @@ class _ShrineAppState extends State<ShrineApp> {
     }
   }
 
-  // Callback saat kategori dipilih
   void _onCategoryTap(Category category) {
     setState(() {
       _currentCategory = category;
@@ -114,25 +113,11 @@ class _ShrineAppState extends State<ShrineApp> {
             ),
         '/cart': (BuildContext context) => const CartScreen(),
         '/about': (context) => AboutScreen(),
-        '/product':(context) => const ProductDetailScreen(),
-        
+        '/product':(context) {
+          final productId = ModalRoute.of(context)!.settings.arguments as int?;
+          return ProductDetailScreen(productId: productId,);
+        },  
       },
-
-      // // Route khusus Product Detail jika pakai argument
-      // onGenerateRoute: (settings) {
-      //   if (settings.name == '/product') {
-      //     if (settings.arguments is int) {
-      //       final id = settings.arguments as int;
-      //       final product = ProductsRepository.loadProducts(Category.all)
-      //           .firstWhere((p) => p.id == id);
-      //       return MaterialPageRoute(
-      //         builder: (context) => ProductDetailScreen(product: product),
-      //       );
-      //     }
-      //   }
-      //   return null;
-      // },
-
       theme: _kShrineTheme,
     );
   }

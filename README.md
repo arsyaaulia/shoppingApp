@@ -2,7 +2,15 @@
 Grafix merupakan platform digital yang menyediakan jasa Desain Grafis. Jasa yang ditawarkan berupa desain untuk kebutuhan pribadi, sosial media, hingga kebutuhan event. Produk atau Desain yang ditampilkan merupakan beberapa Desain yang telah tim pengembang buat selama ini.
 
 ## A. Struktur Root dan Navigasi
-Untuk root dan navigasi 
+Root merupakan struktur utama flutter yang berisi konfigurasi tema, halaman awal (initial route), dan daftar route untuk navigasi ke halaman lain seperti Home, Product, Detail, Cart, dan About. 
+
+Navigasi adalah cara bagaimana untuk berpindah ke halaman lainnya. Untuk navigasi diatur di tiap adanya event/action seperti button. 
+
+```dart
+onPressed: () {
+    Navigator.pushNamed(context, '/cart');
+},
+```
 
 ## B. Masalah dan Solusi
 Dalam proses pengerjaan Grafix, tim pengembang menghadapi beberapa masalah. Setiap masalah itu tim pengembang mencari dan menemukan solusinya masing-masing. Berikut list masalah dan solusi pada projek Grafix
@@ -31,9 +39,9 @@ Tim pengembang mengalami beberapa masalah sebagai berikut:
       },
 ```
 
-4. Repository bermasalah. Terdapat subrepo di dalam repository. Hal ini disebabkan karena tim pengembang melakukan copas folder sekaligus repository VisproWeek3. Sebagai solusi saya meminta bantuan kepada AI (ChatGPT, Gemini), teman-teman (Michele, Ce Inno), serta kating (Ko Gibek). Tapi pada akhirnya saya memutuskan membuat repo baru saja.
+4. Repository bermasalah. Terdapat subrepo di dalam repository. Disebabkan karena tim pengembang melakukan copas folder sekaligus repository VisproWeek3. Sebagai solusi, tim pengembang meminta bantuan kepada AI (ChatGPT, Gemini), teman-teman (Michele, Ce Inno), serta kating (Ko Gibek). Tapi pada akhirnya tim pengembang memutuskan membuat repository baru.
 
-5. Aplikasi tidak bisa jalan saat menjalankan `flutter run` di repo baru. Sudah mencoba hapus folder Android, tetapi tidak berhasil. Takut salah ambil langkah seperti masalah sebelumnya, saya meminta bantuan kepada Ko Rei. Setelah konsul, hal ini disebabkan Gradle yang rewel. Solusi yang diambil meliputi langkah berikut
+5. Aplikasi tidak bisa jalan saat menjalankan `flutter run` di repo baru. Sudah mencoba hapus folder Android, tetapi tidak berhasil. Takut salah ambil langkah seperti masalah sebelumnya, tim pengembang meminta bantuan kepada Ko Rei. Setelah konsul, hal ini disebabkan Gradle yang rewel. Solusi yang diambil meliputi langkah berikut
     - `rm -rf ~/.gradle/daemon/`
     - `rm -rf ~/.gradle/caches/`
     - `flutter clean`
@@ -45,9 +53,9 @@ Tim pengembang mengalami beberapa masalah sebagai berikut:
 Kesimpulannya, solusi yang tim pengembang lakukan saat mendapatkan masalah adalah meminta saran atau bantuan dari berbagai sumber. 
 
 ## C. How deep linking can improve the usability and discoverability of your app.
-Dengan deep link 
+Deep link merupakan URL yang mengarahkan ke halaman tertentu dari sebuah aplikasi. Hal ini memudahkan user untuk mengakses Grafix. User tidak perlu mengunjungi halaman tertentu secara manual, cukup menuliskan seperti Grafix/product/1002, program akan membawa ke halaman tersebut tanpa harus melewati halaman 'All product' terlebih dahulu.
 
 ## D. Fitur yang akan Ditambahkan Selanjutnya
-Untuk tahap pengembangan selanjutnya, tim pengembang akan menambahkan fitur profile user dan fitur checkout.
+Untuk tahap pengembangan selanjutnya, tim pengembang akan menambahkan fitur menghapus semua isi cart sekaligus.
 ___
 

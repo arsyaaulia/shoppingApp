@@ -61,6 +61,7 @@ class _HomePageState extends State<HomePage> {
             product: product,
             //implementasi navigasi
             onTap: () {
+              print('Navigating to product id: ${product.id}');
               Navigator.pushNamed(
                 context,
                 '/product',

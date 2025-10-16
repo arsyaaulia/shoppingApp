@@ -1,4 +1,3 @@
-// lib/model/cart_model.dart
 import 'package:flutter/foundation.dart';
 import 'product.dart';
 
