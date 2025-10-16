@@ -5,11 +5,8 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('About'),
-      ),
-      body: const Center(
+    return const Scaffold(
+      body: Center(
         child: Text(
           'Grafix merupakan Marketplace yang menawarkan\n'
           'jasa berbagai kebutuhan desain visual.\n\n'

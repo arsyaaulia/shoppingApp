@@ -23,6 +23,8 @@ void main() {
       create: (context) => CartModel(),
       child: const ShrineApp(),
     ),
+
+    
   );
 }
 

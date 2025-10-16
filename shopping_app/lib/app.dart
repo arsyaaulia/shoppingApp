@@ -29,6 +29,8 @@ import 'model/product.dart';
 import 'category_menu_page.dart';
 
 import 'package:app_links/app_links.dart';
+// import 'package:go_router/go_router.dart';
+
 
 
 // TODO: Convert ShrineApp to stateful widget (104)
@@ -112,22 +114,24 @@ class _ShrineAppState extends State<ShrineApp> {
             ),
         '/cart': (BuildContext context) => const CartScreen(),
         '/about': (context) => AboutScreen(),
+        '/product':(context) => const ProductDetailScreen(),
+        
       },
 
-      // Route khusus Product Detail
-      onGenerateRoute: (settings) {
-        if (settings.name == '/product') {
-          if (settings.arguments is int) {
-            final id = settings.arguments as int;
-            final product = ProductsRepository.loadProducts(Category.all)
-                .firstWhere((p) => p.id == id);
-            return MaterialPageRoute(
-              builder: (context) => ProductDetailScreen(product: product),
-            );
-          }
-        }
-        return null;
-      },
+      // // Route khusus Product Detail jika pakai argument
+      // onGenerateRoute: (settings) {
+      //   if (settings.name == '/product') {
+      //     if (settings.arguments is int) {
+      //       final id = settings.arguments as int;
+      //       final product = ProductsRepository.loadProducts(Category.all)
+      //           .firstWhere((p) => p.id == id);
+      //       return MaterialPageRoute(
+      //         builder: (context) => ProductDetailScreen(product: product),
+      //       );
+      //     }
+      //   }
+      //   return null;
+      // },
 
       theme: _kShrineTheme,
     );

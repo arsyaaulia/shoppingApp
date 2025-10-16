@@ -10,9 +10,6 @@ class CartScreen extends StatelessWidget {
     final cart = context.watch<CartModel>();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Cart'),
-      ),
       body: cart.items.isEmpty? 
       const Center(
         child: Text('Your Cart is Empty'),
