@@ -4,6 +4,8 @@ Grafix merupakan platform digital yang menyediakan jasa Desain Grafis. Jasa yang
 ## A. Struktur Root dan Navigasi
 Root merupakan struktur utama flutter yang berisi konfigurasi tema, halaman awal (initial route), dan daftar route untuk navigasi ke halaman lain seperti Home, Product, Detail, Cart, dan About. 
 
+![alt text](image.png)
+
 Navigasi adalah cara bagaimana untuk berpindah ke halaman lainnya. Untuk navigasi diatur di tiap adanya event/action seperti button. 
 
 ```dart

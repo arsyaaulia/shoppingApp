@@ -80,7 +80,8 @@ class _ShrineAppState extends State<ShrineApp> {
   }
 
   Future<void> _handleInitialUri() async {
-    final Uri? uri = await _appLinks.getInitialAppLink();
+    final appLinks = AppLinks();
+    final Uri? uri = await appLinks.getInitialLink();
     if (uri != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         _handleDeepLink(uri);
